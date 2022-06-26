@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: stripe_bg_material
+  m_Shader: {fileID: -6465566751694194690, guid: f3e62deedccd64076b725f0eb38f69c4, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_aa2983610f9f437583bf84bc1931990a: 20
+    - Vector1_c3e37fddc88143a8ae4d01df4f6cbf07: 5
+    m_Colors:
+    - Color_587386c618364499a9ba7f83498516cd: {r: 0.8113208, g: 0.5633322, b: 0.22579211, a: 0}
+    - Color_8c74d16587944561af122fcda98a0723: {r: 0.8773585, g: 0.68625796, b: 0.22761661, a: 0}
+    - Color_992771ee69db4df7b438849fbd4c9a64: {r: 0.8773585, g: 0.5075728, b: 0.23589355, a: 0}
+  m_BuildTextureStacks: []
