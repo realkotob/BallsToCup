@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class SpawnBalls : MonoBehaviour
 {
+    public float spawnRadius = 0.6f;
+    public int spawnCount = 20;
     public Transform ballSpawnPoint;
     public GameObject ballPrefab;
     public List<Material> ballMaterials;
-    public float spawnRadius = 0.6f;
 
     int ballMaterialIndex = 0;
 
@@ -15,7 +16,7 @@ public class SpawnBalls : MonoBehaviour
     {
         Shuffle(ballMaterials);
 
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < spawnCount; i++)
         {
             SpawnBall();
         }
@@ -37,7 +38,7 @@ public class SpawnBalls : MonoBehaviour
         Vector3 spawnPoint = new Vector3(ballSpawnPoint.position.x + xOffset, ballSpawnPoint.position.y + yOffset,
                                          ballSpawnPoint.position.z + zOffset);
 
-        GameObject ball = Instantiate(ballPrefab, spawnPoint, ballSpawnPoint.rotation);
+        GameObject ball = Instantiate(ballPrefab, spawnPoint, ballSpawnPoint.rotation, ballSpawnPoint);
         MeshRenderer ballMeshRenderer = ball.GetComponentInChildren<MeshRenderer>();
         ballMeshRenderer.material = pickRandomMaterial();
     }
