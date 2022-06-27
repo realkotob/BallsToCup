@@ -7,8 +7,8 @@ public class SpawnBalls : MonoBehaviour
     public Transform ballSpawnPoint;
     public GameObject ballPrefab;
     public List<Material> ballMaterials;
+    public float spawnRadius = 0.6f;
 
-    
     int ballMaterialIndex = 0;
 
     void Start()
@@ -31,9 +31,9 @@ public class SpawnBalls : MonoBehaviour
 
     void SpawnBall()
     {
-        float xOffset = Random.Range(-0.7f, 0.7f);
-        float yOffset = Random.Range(-0.7f, 0.7f);
-        float zOffset = Random.Range(-0.7f, 0.7f);
+        float xOffset = Random.Range(-spawnRadius, spawnRadius);
+        float yOffset = Random.Range(-spawnRadius, spawnRadius);
+        float zOffset = Random.Range(-spawnRadius, spawnRadius);
         Vector3 spawnPoint = new Vector3(ballSpawnPoint.position.x + xOffset, ballSpawnPoint.position.y + yOffset,
                                          ballSpawnPoint.position.z + zOffset);
 
