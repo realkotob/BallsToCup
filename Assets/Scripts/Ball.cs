@@ -13,7 +13,7 @@ public class Ball : MonoBehaviour
 
     void Update()
     {
-        validatePosition();
+        // validatePosition();
     }
 
     private void validatePosition()
