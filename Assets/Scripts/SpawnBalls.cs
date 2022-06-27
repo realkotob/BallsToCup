@@ -38,7 +38,7 @@ public class SpawnBalls : MonoBehaviour
         Vector3 spawnPoint = new Vector3(ballSpawnPoint.position.x + xOffset, ballSpawnPoint.position.y + yOffset,
                                          ballSpawnPoint.position.z + zOffset);
 
-        GameObject ball = Instantiate(ballPrefab, spawnPoint, ballSpawnPoint.rotation, ballSpawnPoint);
+        GameObject ball = Instantiate(ballPrefab, spawnPoint, ballSpawnPoint.rotation, transform);
         MeshRenderer ballMeshRenderer = ball.GetComponentInChildren<MeshRenderer>();
         ballMeshRenderer.material = pickRandomMaterial();
     }
