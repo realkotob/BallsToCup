@@ -13,7 +13,15 @@ public class Ball : MonoBehaviour
 
     void Update()
     {
-        // validatePosition();
+        if (validationEnabled)
+            validatePosition();
+    }
+
+    bool validationEnabled = true;
+
+    public void toggleValidation(bool validate)
+    {
+        validationEnabled = validate;
     }
 
     private void validatePosition()
@@ -26,6 +34,15 @@ public class Ball : MonoBehaviour
         else
         {
             lastApprovedPosition = deltaFromCenter;
+        }
+    }
+
+    internal void checkIfInContainer()
+    {
+        Vector3 deltaFromCenter = transform.position - FlaskManager.instance.containerCenter.position;
+        if (deltaFromCenter.magnitude < FlaskManager.instance.maxDistanceFromCenter)
+        {
+            toggleValidation(true);
         }
     }
 }
