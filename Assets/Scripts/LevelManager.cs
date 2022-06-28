@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : GenericSingleton<LevelManager>
 {
@@ -16,10 +17,17 @@ public class LevelManager : GenericSingleton<LevelManager>
     [SerializeField]
     private int ballsNeeded = 0;
 
+    [Header("Level Screens")]
+    public GameObject levelWinScreen;
+    public GameObject levelLoseScreen;
+
+    bool allowTap = false;
     void Start()
     {
         checkIsActive = true;
         Invoke("checkIfLost", 0.1f);
+
+        InputManager.instance.OnTap += onTapInput;
     }
 
     public int getBallsNeeded()
@@ -44,6 +52,11 @@ public class LevelManager : GenericSingleton<LevelManager>
             return;
         }
         var all_balls = GameObject.FindGameObjectsWithTag("Ball");
+        if (all_balls.Length == 0)
+        {
+            print("No balls found! Cannot check for lose condition.");
+            return;
+        }
         foreach (var ball in all_balls)
         {
             if (ball.GetComponent<Ball>().isConsumed() == false)
@@ -53,19 +66,20 @@ public class LevelManager : GenericSingleton<LevelManager>
                 return;
             }
         }
+
         framesLost++;
-        if (framesLost > 35)
+        if (framesLost > 30)
         {
             levelLost();
         }
-        Invoke("checkIfLost", 0.5f);
+        Invoke("checkIfLost", 0.1f);
     }
 
     private void levelLost()
     {
         checkIsActive = false;
         Debug.Log("Level Lost");
-        Invoke("showLoseScreen", 1f);
+        showLoseScreen();
     }
 
     internal void levelWin()
@@ -77,11 +91,41 @@ public class LevelManager : GenericSingleton<LevelManager>
 
     void showWinScreen()
     {
-        throw new NotImplementedException();
+        levelWinScreen.SetActive(true);
+        Invoke("setAllowTap", 0.5f);
     }
 
     void showLoseScreen()
     {
-        throw new NotImplementedException();
+        levelLoseScreen.SetActive(true);
+        Invoke("setAllowTap", 0.5f);
+    }
+
+    void setAllowTap()
+    {
+        allowTap = true;
+    }
+
+    void onTapInput(Vector3 input)
+    {
+        if (!allowTap)
+        {
+            return;
+        }
+
+        if (levelLoseScreen.activeSelf)
+        {
+            // Restart level
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            return;
+        }
+        else if (levelWinScreen.activeSelf)
+        {
+            var allSceneNumbers = SceneManager.sceneCountInBuildSettings;
+            // Load next level
+            int sceneBuildIndex = (SceneManager.GetActiveScene().buildIndex + 1) % allSceneNumbers;
+            SceneManager.LoadScene(sceneBuildIndex);
+            return;
+        }
     }
 }

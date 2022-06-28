@@ -37,7 +37,8 @@ public class Ball : MonoBehaviour
         consumed = true;
     }
 
-    public bool isConsumed(){
+    public bool isConsumed()
+    {
         return consumed;
     }
 
