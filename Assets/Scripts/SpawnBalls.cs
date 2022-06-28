@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnBalls : MonoBehaviour
+public class SpawnBalls : GenericSingleton<SpawnBalls>
 {
-    public float spawnRadius = 0.6f;
-    public int spawnCount = 20;
+    float spawnRadius = 0.6f;
+    int spawnCount = 20;
     public Transform ballSpawnPoint;
     public GameObject ballPrefab;
     public List<Material> ballMaterials;
@@ -14,7 +14,9 @@ public class SpawnBalls : MonoBehaviour
 
     void Start()
     {
-        Shuffle(ballMaterials);
+        spawnCount = LevelManager.instance.ballsCount;
+        
+         Shuffle(ballMaterials);
 
         for (int i = 0; i < spawnCount; i++)
         {

@@ -17,6 +17,30 @@ public class Ball : MonoBehaviour
             validatePosition();
     }
 
+    private bool collected = false;
+    public void setCollected()
+    {
+        if (collected)
+            return;
+
+        collected = true;
+
+        RemainingLabel.instance.addCollectedBall();
+    }
+
+    private bool consumed = false;
+    internal void setConsumed()
+    {
+        if (consumed)
+            return;
+
+        consumed = true;
+    }
+
+    public bool isConsumed(){
+        return consumed;
+    }
+
     bool validationEnabled = true;
 
     public void toggleValidation(bool validate)
@@ -37,12 +61,21 @@ public class Ball : MonoBehaviour
         }
     }
 
-    internal void checkIfInContainer()
+    internal void checkIfInFlaskSphere()
+    {
+        if (isInsideSphere())
+        {
+            toggleValidation(true);
+        }
+    }
+
+    public bool isInsideSphere()
     {
         Vector3 deltaFromCenter = transform.position - FlaskManager.instance.containerCenter.position;
         if (deltaFromCenter.magnitude < FlaskManager.instance.maxDistanceFromCenter)
         {
-            toggleValidation(true);
+            return true;
         }
+        return false;
     }
 }
