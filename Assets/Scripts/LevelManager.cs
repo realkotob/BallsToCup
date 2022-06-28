@@ -28,6 +28,9 @@ public class LevelManager : GenericSingleton<LevelManager>
         Invoke("checkIfLost", 0.1f);
 
         InputManager.instance.OnTap += onTapInput;
+
+        levelLoseScreen.SetActive(false);
+        levelWinScreen.SetActive(false);
     }
 
     public int getBallsNeeded()
