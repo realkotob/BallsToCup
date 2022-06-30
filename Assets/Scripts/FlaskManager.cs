@@ -68,8 +68,20 @@ public class FlaskManager : GenericSingleton<FlaskManager>
         if (v != 0)
         {
             // print("rotating " + v);
-            transform.Rotate(0, 0, v);
+            // transform.Rotate(0, 0, v);
+            var targetRotation = transform.rotation * Quaternion.Euler(0, 0, v);
+            // var targetRotation =
+            //     Quaternion.FromToRotation(transform.up, Quaternion.AngleAxis(v, Vector3.forward) * transform.up);
+
+            // transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 1f);
+            transform.rotation = targetRotation;
             // flaskRigidbody.AddTorque(transform.forward * v);
         }
+    }
+
+    public void applyRotation(float rotation, float turnSpeed)
+    {
+        transform.rotation =
+            Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, rotation), turnSpeed * Time.deltaTime);
     }
 }
