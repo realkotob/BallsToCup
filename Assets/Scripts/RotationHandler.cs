@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RotationHandler : MonoBehaviour
 {
-    [Range(1f, 500f)]
+    [Range(1f, 50f)]
     [SerializeField]
     private float rotationSensitivity = 10f;
 
