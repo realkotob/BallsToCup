@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using RDG;
 
 public class RemainingLabel : GenericSingleton<RemainingLabel>
 {
@@ -26,6 +27,8 @@ public class RemainingLabel : GenericSingleton<RemainingLabel>
         }
         collected++;
         remainingLabel.text = collected + "/" + totalNeeded;
+
+        RDG.Vibration.Vibrate(200, 5, false);
 
         if (collected >= totalNeeded)
         {
