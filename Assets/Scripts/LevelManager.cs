@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using RDG;
 
 public class LevelManager : GenericSingleton<LevelManager>
 {
-
     [Header("Level Settings")]
     [Tooltip("Number of balls to spawn.")]
     [Range(20, 100)]
@@ -19,9 +19,13 @@ public class LevelManager : GenericSingleton<LevelManager>
 
     [Header("Level Screens")]
     public GameObject levelWinScreen;
+
     public GameObject levelLoseScreen;
 
+    public GameObject confettiVfx;
+
     bool allowTap = false;
+
     void Start()
     {
         checkIsActive = true;
@@ -46,6 +50,7 @@ public class LevelManager : GenericSingleton<LevelManager>
     }
 
     bool checkIsActive = true;
+
     int framesLost;
 
     void checkIfLost()
@@ -82,26 +87,35 @@ public class LevelManager : GenericSingleton<LevelManager>
     {
         checkIsActive = false;
         Debug.Log("Level Lost");
-        showLoseScreen();
+        StartCoroutine(showLoseScreen());
     }
 
     internal void levelWin()
     {
         checkIsActive = false;
         Debug.Log("Level Won");
-        Invoke("showWinScreen", 1f);
+        StartCoroutine(showWinScreen());
     }
 
-    void showWinScreen()
+    IEnumerator showWinScreen()
     {
+        Mug.instance.playMugGlow();
+        confettiVfx.SetActive(true);
+
+        RDG.Vibration.Vibrate(800, 10, false);
+        yield return new WaitForSeconds(2f);
         levelWinScreen.SetActive(true);
-        Invoke("setAllowTap", 0.5f);
+
+        yield return new WaitForSeconds(0.5f);
+        setAllowTap();
     }
 
-    void showLoseScreen()
+    IEnumerator showLoseScreen()
     {
         levelLoseScreen.SetActive(true);
-        Invoke("setAllowTap", 0.5f);
+
+        yield return new WaitForSeconds(0.5f);
+        setAllowTap();
     }
 
     void setAllowTap()
@@ -125,9 +139,12 @@ public class LevelManager : GenericSingleton<LevelManager>
         else if (levelWinScreen.activeSelf)
         {
             var allSceneNumbers = SceneManager.sceneCountInBuildSettings;
+
             // Load next level
-            int sceneBuildIndex = (SceneManager.GetActiveScene().buildIndex + 1) % allSceneNumbers;
-            SceneManager.LoadScene(sceneBuildIndex);
+            int sceneBuildIndex =
+                (SceneManager.GetActiveScene().buildIndex + 1) %
+                allSceneNumbers;
+            SceneManager.LoadScene (sceneBuildIndex);
             return;
         }
     }

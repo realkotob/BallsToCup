@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mug : MonoBehaviour
+public class Mug : GenericSingleton<Mug>
 {
-    // Start is called before the first frame update
+    public Animator mugGlowVfx;
     void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void playMugGlow(){
+        mugGlowVfx.gameObject.SetActive(true);
     }
+
+   
 }

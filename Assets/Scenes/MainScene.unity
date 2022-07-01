@@ -739,6 +739,71 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 303821204}
   m_CullTransparentMesh: 1
+--- !u!1001 &316300423
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5437342841745100454, guid: 052cce4f1995347f1b7f6414a56303d5, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437342841759328582, guid: 052cce4f1995347f1b7f6414a56303d5, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437342841759328582, guid: 052cce4f1995347f1b7f6414a56303d5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437342841759328582, guid: 052cce4f1995347f1b7f6414a56303d5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437342841759328582, guid: 052cce4f1995347f1b7f6414a56303d5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437342841759328582, guid: 052cce4f1995347f1b7f6414a56303d5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437342841759328582, guid: 052cce4f1995347f1b7f6414a56303d5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437342841759328582, guid: 052cce4f1995347f1b7f6414a56303d5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437342841759328582, guid: 052cce4f1995347f1b7f6414a56303d5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437342841759328582, guid: 052cce4f1995347f1b7f6414a56303d5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437342841759328582, guid: 052cce4f1995347f1b7f6414a56303d5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437342841759328582, guid: 052cce4f1995347f1b7f6414a56303d5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437342841759365932, guid: 052cce4f1995347f1b7f6414a56303d5, type: 3}
+      propertyPath: m_Name
+      value: ConfettiRain
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437342841759365932, guid: 052cce4f1995347f1b7f6414a56303d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 052cce4f1995347f1b7f6414a56303d5, type: 3}
 --- !u!1 &364230762
 GameObject:
   m_ObjectHideFlags: 0
@@ -1203,9 +1268,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activateOnLoad: []
   ballsCount: 30
-  ballsNeeded: 20
+  ballsNeeded: 5
   levelWinScreen: {fileID: 169491001}
   levelLoseScreen: {fileID: 1311992121}
+  confettiVfx: {fileID: 1470229402}
 --- !u!4 &571863583
 Transform:
   m_ObjectHideFlags: 0
@@ -1760,6 +1826,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1311992121}
   m_CullTransparentMesh: 1
+--- !u!1 &1470229402 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5437342841759365932, guid: 052cce4f1995347f1b7f6414a56303d5, type: 3}
+  m_PrefabInstance: {fileID: 316300423}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1541297541
 GameObject:
   m_ObjectHideFlags: 0

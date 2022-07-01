@@ -357,6 +357,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spout_two
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 83045e04d65bc4b74b4cddbe2dd3a5e4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83045e04d65bc4b74b4cddbe2dd3a5e4, type: 3}
 --- !u!4 &4808681281672191687 stripped
@@ -559,7 +563,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e53f84ee2e00b446297c92cab08bb48b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e53f84ee2e00b446297c92cab08bb48b, type: 3}
