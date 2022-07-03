@@ -1281,8 +1281,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateOnLoad: []
-  ballsCount: 70
-  ballsNeeded: 45
+  ballsCount: 60
+  ballsNeeded: 30
   levelWinScreen: {fileID: 169491001}
   levelLoseScreen: {fileID: 1311992121}
   confettiVfx: {fileID: 75847271}
@@ -2802,9 +2802,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5327774342540706941, guid: 22ec15794d16444ba8b4349838822812, type: 3}
+    - target: {fileID: 4928406619886067817, guid: 22ec15794d16444ba8b4349838822812, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5327774342540706941, guid: 22ec15794d16444ba8b4349838822812, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8113843821503941058, guid: 22ec15794d16444ba8b4349838822812, type: 3}
       propertyPath: m_Name

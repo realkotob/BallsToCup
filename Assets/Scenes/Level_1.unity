@@ -2802,6 +2802,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4928406619886067817, guid: 22ec15794d16444ba8b4349838822812, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8113843821503941058, guid: 22ec15794d16444ba8b4349838822812, type: 3}
       propertyPath: m_Name
       value: Flask
@@ -2849,6 +2853,10 @@ PrefabInstance:
     - target: {fileID: 8113843821503941059, guid: 22ec15794d16444ba8b4349838822812, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8960826418279585742, guid: 22ec15794d16444ba8b4349838822812, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22ec15794d16444ba8b4349838822812, type: 3}
