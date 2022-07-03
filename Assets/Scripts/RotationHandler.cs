@@ -8,6 +8,9 @@ public class RotationHandler : MonoBehaviour
     [SerializeField]
     private float rotationSensitivity = 10f;
 
+    // [SerializeField]
+    // private float maxRotationPerFrame = 0.1f;
+
     void Start()
     {
         InputManager.instance.OnSwipeStarted += onRotationStarted;
@@ -43,7 +46,12 @@ public class RotationHandler : MonoBehaviour
         float normalize_to_distance = distance / Screen.width;
         angle = angle * normalize_to_distance * rotationSensitivity;
 
-        target_transform.Rotate(Vector3.forward, angle * Time.deltaTime * 60);
+        var finalRotation = angle * Time.deltaTime * 60;
+        // if(Mathf.Abs(finalRotation) > maxRotationPerFrame){
+        //     finalRotation = maxRotationPerFrame * Mathf.Sign(finalRotation);
+        // }
+
+        target_transform.Rotate(Vector3.forward, finalRotation);
         previousPosition = currentPosition;
     }
 
