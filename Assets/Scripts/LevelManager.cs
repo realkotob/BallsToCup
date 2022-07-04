@@ -17,7 +17,7 @@ public class LevelManager : GenericSingleton<LevelManager>
     [SerializeField]
     private int ballsNeeded = 0;
 
-    [Header("Level Screens")]
+    [Header("Level Resources")]
     public GameObject levelWinScreen;
 
     public GameObject levelLoseScreen;

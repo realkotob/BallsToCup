@@ -2283,6 +2283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateOnLoad: []
+  gravity: 10
   ballSpawnPoint: {fileID: 1625611057}
   ballPrefab: {fileID: 4719243950892186268, guid: d7136d5424fe148c8bbf61f6d8bae0b3, type: 3}
   ballMaterials:

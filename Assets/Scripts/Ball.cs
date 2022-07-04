@@ -119,27 +119,35 @@ public class Ball : MonoBehaviour
     }
 
     Vector3 lastApprovedSpoutPosition;
+
     Vector3 rotationAtLastApprovedSpoutPosition;
 
     private void validateSpoutPosition()
     {
-        if(isInsideSphere())
+        if (isInsideSphere())
         {
             return;
         }
         if (!isInsideSpout())
         {
             // set position to last approved position, accounting for change in rotation
-            Vector3 rotationDelta = FlaskManager.instance.transform.rotation.eulerAngles - rotationAtLastApprovedSpoutPosition;
-            Vector3 rotationLastApprovedPosition = Quaternion.Euler(rotationDelta) * lastApprovedSpoutPosition ;
+            Vector3 rotationDelta =
+                FlaskManager.instance.transform.rotation.eulerAngles -
+                rotationAtLastApprovedSpoutPosition;
+            Vector3 rotationLastApprovedPosition =
+                Quaternion.Euler(rotationDelta) * lastApprovedSpoutPosition;
             transform.position =
                 FlaskManager.instance.transform.position +
                 rotationLastApprovedPosition;
+        }
+        else
+        {
+            lastApprovedPosition =
+                transform.position - FlaskManager.instance.transform.position;
 
-        }else{
-            lastApprovedPosition = transform.position - FlaskManager.instance.transform.position;
             // get euler rotation
-            rotationAtLastApprovedSpoutPosition = FlaskManager.instance.transform.eulerAngles;
+            rotationAtLastApprovedSpoutPosition =
+                FlaskManager.instance.transform.eulerAngles;
         }
     }
 }
